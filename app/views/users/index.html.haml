@@ -1,1 +1,31 @@
-userindex
+= render "shared/header"
+
+.title
+  ユーザー一覧
+
+/ テーブル
+%table
+  %tr
+    %th 名前
+    %th Email
+    %th 年齢
+    %th 性別
+    %th 学校名
+    %th 面接日時
+  - @users.each do |user|
+    %tr
+      %td
+        = user.name
+      %td
+        = user.email
+      %td
+        - if user.birthday.present?
+          = agecalc(user.birthday)
+      %td
+        = user.gender
+      %td
+        = user.univ
+      %td
+        201000000
+      %td
+        = link_to "面接一覧"
