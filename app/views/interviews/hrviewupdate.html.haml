@@ -1,0 +1,13 @@
+= render "shared/header"
+.alert
+  面接が更新されました
+.boxes
+  .boxes__title
+    開始時間:
+    = @interview.starttime.strftime("%Y年%m月%d日 %H時%M分")
+  .boxes__title
+    承認状態:
+    = @interview.status
+.bottombox
+  .bottombox__index
+    = button_to "面接一覧へ",hrviewsindex_user_interviews_path(@interview.user_id), method: :get
