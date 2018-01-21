@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   has_many :interviews
 
-  enum gender: { man: 0, woman: 1}
+  enum gender: { 男性: 0, 女性: 1}
 end

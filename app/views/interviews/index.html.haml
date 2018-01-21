@@ -1,1 +1,13 @@
-indextest
+= render "shared/header"
+
+.title
+  = current_user.name
+  さんの面接一覧
+
+/ テーブル
+%table
+  %tr
+    %th 面接開始時間
+    %th 承認状態
+  %tr
+    %td
