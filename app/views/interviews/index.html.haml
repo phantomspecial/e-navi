@@ -15,11 +15,11 @@
       %td
         = interview.status
       %td
-        = link_to "編集", edit_user_interview_path(current_user.id, interview.id)
+        = button_to "編集", edit_user_interview_path(current_user.id, interview.id), method: :get
       %td
-        = link_to "削除", user_interview_path(current_user.id, interview.id)
+        = button_to "削除", user_interview_path(current_user.id, interview.id), method: :delete
 
 .bottombox
   .bottombox__request
   .bottombox__new
-    = link_to "新規面接作成", new_user_interview_path(current_user.id)
+    = button_to "新規面接作成", new_user_interview_path(current_user.id), method: :get
