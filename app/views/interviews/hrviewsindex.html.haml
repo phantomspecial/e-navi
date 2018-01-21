@@ -7,8 +7,9 @@
   現在の面接日程
 
 %h4
-  = @selectedinterview.starttime.strftime("%Y年%m月%d日 %H時%M分")
-  に面接が設定されています。
+  - if @selectedinterview.present?
+    = @selectedinterview.starttime.strftime("%Y年%m月%d日 %H時%M分")
+    に面接が設定されています。
 
 .borderline
 
