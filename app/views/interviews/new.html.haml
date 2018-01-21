@@ -1,0 +1,12 @@
+.title
+  新規面接作成
+
+.boxes
+  = form_for @interview ,url: user_interviews_path do |f|
+    .boxes__fields
+      = f.label :starttime , "開始時間"
+      .br
+      = f.datetime_select :starttime, {use_month_names: %w(1月 2月 3月 4月 5月 6月 7月 8月 9月 10月 11月 12月), start_year: 2013, end_year: 2023, default: DateTime.now()}
+    .boxes__fields
+      = f.hidden_field :status, value: "保留"
+      = f.submit value: "登録する"
