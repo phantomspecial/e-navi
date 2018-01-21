@@ -1,5 +1,4 @@
 = render "shared/header"
-
 .title
   = current_user.name
   さんの面接一覧
@@ -9,5 +8,18 @@
   %tr
     %th 面接開始時間
     %th 承認状態
-  %tr
-    %td
+  - @interviews.each do |interview|
+    %tr
+      %td
+        = interview.starttime.strftime("%Y年%m月%d日 %H時%M分")
+      %td
+        = interview.status
+      %td
+        = link_to "編集", edit_user_interview_path(current_user.id, interview.id)
+      %td
+        = link_to "削除", user_interview_path(current_user.id, interview.id)
+
+.bottombox
+  .bottombox__request
+  .bottombox__new
+    = link_to "新規面接作成", new_user_interview_path(current_user.id)

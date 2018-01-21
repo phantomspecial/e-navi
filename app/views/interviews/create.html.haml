@@ -1,0 +1,13 @@
+= render "shared/header"
+.alert
+  面接が作成されました
+.boxes
+  .boxes__title
+    開始時間:
+    = @interview.starttime.strftime("%Y年%m月%d日 %H時%M分")
+  .boxes__title
+    承認状態:
+    = @interview.status
+.bottombox
+  .bottombox__index
+    = link_to "面接一覧へ",user_interviews_path(current_user.id)

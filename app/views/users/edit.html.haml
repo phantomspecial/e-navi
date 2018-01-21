@@ -1,27 +1,27 @@
 = render "shared/header"
 .title
   プロフィールページ
-.profileboxes
+.boxes
   = form_for @user do |f|
-    .profileboxes__fields
+    .boxes__fields
       = f.label :email , "Email"
       .br
       = f.text_field :email
-    .profileboxes__fields
+    .boxes__fields
       = f.label :name , "名前"
       .br
       = f.text_field :name
-    .profileboxes__fields
+    .boxes__fields
       = f.label :birthday , "年齢"
       .br
       = f.date_select :birthday, {use_month_names: %w(1月 2月 3月 4月 5月 6月 7月 8月 9月 10月 11月 12月), start_year: 1988, end_year: 2000, default: Date.new(2000,1,1)}
-    .profileboxes__fields
+    .boxes__fields
       = f.label :gender , "性別"
       .br
       = f.select :gender, User.genders.keys.to_a, {}
-    .profileboxes__fields
+    .boxes__fields
       = f.label :univ , "学校名"
       .br
       = f.text_field :univ
-    .profileboxes__fields
+    .boxes__fields
       = f.submit value: "登録する"
