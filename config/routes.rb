@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   root 'users#index'
 
   resources :users do
-    resources :interviews
+    resources :interviews do
+      collection do
+        get 'hrviewsindex'
+        patch 'hrviewupdate'
+      end
+    end
   end
 
 end

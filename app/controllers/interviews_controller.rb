@@ -27,6 +27,24 @@ class InterviewsController < ApplicationController
     redirect_to user_interviews_path(current_user.id)
   end
 
+
+  def hrviewsindex
+    @user = User.find(params[:user_id])
+    @thisuserinterviews = Interview.where(user_id: params[:user_id])
+  end
+
+  def hrviewupdate
+    thisuserinterviews = Interview.where(user_id: params[:user_id])
+    thisuserinterviews.each do |thisuserinterview|
+      if thisuserinterview.id == params[:interviewid].to_i
+        thisuserinterview.update(status: '承認')
+        @interview = thisuserinterview
+      else
+        thisuserinterview.update(status: '却下')
+      end
+    end
+  end
+
   private
   def interview_params
     params.require(:interview).permit(:user_id, :starttime, :status)
