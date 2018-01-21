@@ -2,7 +2,6 @@
 .title
   ユーザー一覧
 
-/ テーブル
 %table
   %tr
     %th 名前
@@ -25,6 +24,7 @@
       %td
         = user.univ
       %td
-        201000000
+        - if user.interviews.where(status: '承認').first.present?
+          = user.interviews.where(status: '承認').first.starttime.strftime("%Y年%m月%d日 %H時%M分")
       %td
         = button_to "面接一覧", hrviewsindex_user_interviews_path(user.id), method: :get

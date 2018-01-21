@@ -30,6 +30,7 @@ class InterviewsController < ApplicationController
 
   def hrviewsindex
     @user = User.find(params[:user_id])
+    @selectedinterview = Interview.where(user_id: params[:user_id]).where(status: '承認').first
     @thisuserinterviews = Interview.where(user_id: params[:user_id])
   end
 

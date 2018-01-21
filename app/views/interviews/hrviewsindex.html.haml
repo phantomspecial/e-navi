@@ -7,7 +7,7 @@
   現在の面接日程
 
 %h4
-  2010t423
+  = @selectedinterview.starttime.strftime("%Y年%m月%d日 %H時%M分")
   に面接が設定されています。
 
 .borderline
@@ -16,4 +16,4 @@
   面接日程を変更する場合は以下から選んでください。
 
 - @thisuserinterviews.each do |thisuserinterview|
-  = button_to "#{thisuserinterview.starttime.strftime("%Y年%m月%d日 %H時%M分")}", hrviewupdate_user_interviews_path(thisuserinterview.user_id), method: :patch, params: { interviewid: thisuserinterview.id}
+  = button_to "#{thisuserinterview.starttime.strftime("%Y年%m月%d日 %H時%M分")}", hrviewupdate_user_interviews_path(thisuserinterview.user_id), method: :patch, params: {interviewid: thisuserinterview.id}
