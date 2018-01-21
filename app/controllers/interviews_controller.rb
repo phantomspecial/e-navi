@@ -2,6 +2,7 @@ class InterviewsController < ApplicationController
 
   def index
     @interviews = set_interviews
+    @addresses = User.where.not(id: current_user.id)
   end
 
   def new
