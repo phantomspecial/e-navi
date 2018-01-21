@@ -10,4 +10,4 @@
     = @interview.status
 .bottombox
   .bottombox__index
-    = link_to "面接一覧へ",user_interviews_path(current_user.id)
+    = button_to "面接一覧へ",user_interviews_path(current_user.id), method: :get
