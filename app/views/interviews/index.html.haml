@@ -27,8 +27,8 @@
 
 .bottombox
   .bottombox__request
-    = form_tag() do
-      %select
+    = form_tag(newdatemailsender_user_interviews_path, method: "post") do
+      %select{name: "send_email"}
         - @addresses.each do |address|
           %option{value: "#{address.email}"} #{address.email}
       %input{type: "submit", value: "申請"}

@@ -45,11 +45,28 @@ class InterviewsController < ApplicationController
         thisuserinterview.update(status: '却下')
       end
     end
+
+    @send_user = current_user
+    @user = User.find(params[:user_id])
+
+    NotificationMailer.send_interviewdate_edit_to_hr(@send_user, @user,@interview).deliver
+  end
+
+  def newdatemailsender
+    @send_user = User.where(email: send_address_params[:send_email]).first
+    @user = current_user
+
+    NotificationMailer.send_interviewdate_to_hr(@send_user, @user).deliver
+    NotificationMailer.send_interviewdate_to_user(@send_user, @user).deliver
   end
 
   private
   def interview_params
     params.require(:interview).permit(:user_id, :starttime, :status)
+  end
+
+  def send_address_params
+    params.permit(:send_email)
   end
 
   def set_interviews

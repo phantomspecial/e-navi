@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       collection do
         get 'hrviewsindex'
         patch 'hrviewupdate'
+        post 'newdatemailsender'
       end
     end
   end
