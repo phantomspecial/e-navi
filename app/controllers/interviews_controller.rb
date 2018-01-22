@@ -1,7 +1,7 @@
 class InterviewsController < ApplicationController
 
   def index
-    @interviews = set_interviews
+    @interviews = set_interviews.order(starttime: 'asc')
     @addresses = User.where.not(id: current_user.id)
   end
 
