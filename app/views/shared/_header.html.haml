@@ -3,5 +3,5 @@
     = link_to "e-Navigator", root_path
     = link_to "プロフィール", edit_user_path(current_user.id)
     = link_to "自分の面接一覧", user_interviews_path(current_user.id)
-    = link_to "メール", ""
+    = link_to "メール", "/letter_opener"
     = link_to "ログアウト", destroy_user_session_path, method: :delete

@@ -4,11 +4,16 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
   resources :users do
     resources :interviews do
       collection do
         get 'hrviewsindex'
         patch 'hrviewupdate'
+        post 'newdatemailsender'
       end
     end
   end
